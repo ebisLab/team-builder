@@ -4,16 +4,20 @@ import Form from './components/Form';
 import Members from './components/Members'
 import './App.css';
 
-function App(props) {
-console.log(props)
+function App() {
+
   const [members, setMembers]= useState([]);
 
-  const changeHandler = event =>{
-    setMembers(event.target.value);
-  }
+  // const [addMember, setAddMember]= setMembers([...members, members])
+  const addMember = member => setMembers([...members, member])
+
+  // const changeHandler = event =>{
+  //   setMembers(event.target.value);
+  // }
+  console.log('members', members)
   return (
     <div className="App">
-      <Form />
+      <Form addMember={addMember} />
       < Members />
     </div>
   );

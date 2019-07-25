@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 //import logo from './logo.svg';
 // import './App.css';
 
-function Form() {
+function Form(props) {
 
   const [input, setInput]= useState({
       name: "",
@@ -12,7 +12,7 @@ function Form() {
     //   role2: "",
     //   role3:""
   });
-
+console.log('props', props)
   const handleiInput = e =>{
       console.log('handle input Fire');
       console.log('Value', e.target.value);
@@ -23,7 +23,8 @@ function Form() {
 
   const handleSubmit = event =>{
       event.preventDefault();
-    setInput(event.target.value);
+      PaymentResponse.addMember(input)
+    // setInput(event.target.value);
   }
   return (
     <div className="App">
