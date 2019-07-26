@@ -2,12 +2,12 @@ import React, {useState} from 'react';
 //import logo from './logo.svg';
 // import './App.css';
 
-function Form(props) {
+ function Form(props) {
 
   const [input, setInput]= useState({
       name: "",
       email:"",
-      role:"",
+      role:""
     //   role1:"",
     //   role2: "",
     //   role3:""
@@ -15,22 +15,29 @@ function Form(props) {
 console.log('props', props)
   const handleiInput = e =>{
       console.log('handle input Fire');
-      console.log('Value', e.target.value);
-      console.log('Name', e.target.name);
+    //   console.log('Value', e.target.value);
+    //   console.log('Name', e.target.name);
       setInput({ ...input, [e.target.name] : e.target.value});
 
-  }
+  };
 
-  const handleSubmit = event =>{
-      event.preventDefault();
-      PaymentResponse.addMember(input)
-    // setInput(event.target.value);
-  }
+console.log('input', input)
+
+  const handleSubmit = event => {
+         event.preventDefault(); //keeps page from reloading
+         props.addMember(input);
+    //   console.log('target name', event.target.name)
+    //   event.preventDefault(); //keeps page from reloading
+    // setInput( {  name: "",
+    // email:"",
+    // role:""})
+  };
+
   return (
     <div className="App">
       <h1>Add a member to</h1>
       <p>The List</p>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="name">
           Name:<input type="text" value ={input.name} name="name" onChange={handleiInput} />
         </label>
@@ -40,27 +47,13 @@ console.log('props', props)
        <p>
            <label htmlFor="role">
           Role:
-          <input type="radio" value ={input.role} name="role" onChange={handleiInput} />Role Sample
+          <input type="text" value ={input.role} name="role" onChange={handleiInput} />
 
 
         </label></p>
         <p><button>Add Member</button></p>
 
       </form>
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
     </div>
   );
 }

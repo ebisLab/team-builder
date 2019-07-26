@@ -8,17 +8,14 @@ function App() {
 
   const [members, setMembers]= useState([]);
 
-  // const [addMember, setAddMember]= setMembers([...members, members])
   const addMember = member => setMembers([...members, member])
-
-  // const changeHandler = event =>{
-  //   setMembers(event.target.value);
-  // }
+ 
   console.log('members', members)
   return (
     <div className="App">
       <Form addMember={addMember} />
-      < Members />
+      {/* {members.map(member => console.log('map', member))} */}
+      {/* < Members /> */}
     </div>
   );
 }

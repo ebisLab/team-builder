@@ -1,8 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-function Members(){
+function Members(props){
+    const [isEditing, setIsEditing] = useState(false);
+
+    const handleEdit = e => {
+        setIsEditing(!isEditing)
+    }
     return (
-        <div>This is Mmeber area</div>
+        <div>
+            <h2>Member:</h2>
+            <p>{props.member.name}</p>
+            <h2>Name:</h2>
+            <h2>Email:</h2>
+            <h2>Role</h2>
+
+            <button onClick={handleEdit}>Edit</button>
+        </div>
     )
 }
 
