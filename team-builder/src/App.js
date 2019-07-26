@@ -9,13 +9,18 @@ function App() {
   const [members, setMembers]= useState([]);
 
   const addMember = member => setMembers([...members, member])
-  const updateMember = member => setMembers([...members, member])
+  const updateMember = updatedMember => setMembers([...members.map(member => {
+    if(member.id === updateMember.id){
+      return updateMember;
+    }
+    return member;
+  })])
  
   console.log('members', members)
   return (
     <div className="App">
       <Form addMember={addMember} />
-      {members.map(member => < Members member={member} />  )}
+      {members.map(member => < Members member={member} updateMember={updateMember} />  )}
     </div>
   );
 }

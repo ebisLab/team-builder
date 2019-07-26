@@ -7,7 +7,8 @@ function Members(props){
     const [input, setInput]= useState({
         name: props.member.name,
         email: props.member.email,
-        role: props.member.role
+        role: props.member.role,
+        id: props.member.id
       //   role1:"",
       //   role2: "",
       //   role3:""
@@ -22,12 +23,14 @@ function Members(props){
     };
 
     const handleEdit = e => {
-        // preventDefault()
         setIsEditing(!isEditing)
     }
 
     const updateHandler = e => {
+        e.preventDefault()
         console.log('update fire')
+        props.updateMember(input);
+        setIsEditing(!isEditing)
     }
 
 console.log('edit', isEditing)
@@ -36,7 +39,7 @@ if(isEditing){
         <div className="App">
       <h1>Add a member to</h1>
       <p>The List</p>
-      <form>
+      <form onSubmit={updateHandler}>
         <label htmlFor="name">
           Name:<input type="text" value ={input.name} name="name" onChange={handleiInput} />
         </label>
@@ -50,7 +53,7 @@ if(isEditing){
 
 
         </label></p>
-        <p><button onClick={updateHandler}>Update Member</button>
+        <p><button>Update Member</button>
         <button onClick={handleEdit}>Go Back</button></p>
 
       </form>
