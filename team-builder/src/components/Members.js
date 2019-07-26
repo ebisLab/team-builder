@@ -26,6 +26,10 @@ function Members(props){
         setIsEditing(!isEditing)
     }
 
+    const updateHandler = e => {
+        console.log('update fire')
+    }
+
 console.log('edit', isEditing)
 if(isEditing){
     return(
@@ -46,7 +50,7 @@ if(isEditing){
 
 
         </label></p>
-        <p><button>Add Member</button>
+        <p><button onClick={updateHandler}>Update Member</button>
         <button onClick={handleEdit}>Go Back</button></p>
 
       </form>

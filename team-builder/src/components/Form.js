@@ -7,7 +7,8 @@ import React, {useState} from 'react';
   const [input, setInput]= useState({
       name: "",
       email:"",
-      role:""
+      role:"", 
+      id: null
     //   role1:"",
     //   role2: "",
     //   role3:""
@@ -25,7 +26,7 @@ console.log('input', input)
 
   const handleSubmit = event => {
          event.preventDefault(); //keeps page from reloading
-         props.addMember(input);
+         props.addMember({...input , id: Math.random()});
     //   console.log('target name', event.target.name)
     //   event.preventDefault(); //keeps page from reloading
     setInput( {  name: "",

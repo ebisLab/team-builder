@@ -9,6 +9,7 @@ function App() {
   const [members, setMembers]= useState([]);
 
   const addMember = member => setMembers([...members, member])
+  const updateMember = member => setMembers([...members, member])
  
   console.log('members', members)
   return (
