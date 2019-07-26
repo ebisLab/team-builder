@@ -9,7 +9,7 @@ function App() {
   const [members, setMembers]= useState([]);
 
   const addMember = member => setMembers([...members, member])
-  const updateMember = updatedMember => setMembers([...members.map(member => {
+  const updateMember = updateMember => setMembers([...members.map(member => {
     if(member.id === updateMember.id){
       return updateMember;
     }
