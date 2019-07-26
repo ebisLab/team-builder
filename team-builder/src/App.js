@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="App">
       <Form addMember={addMember} />
-      {/* {members.map(member => console.log('map', member))} */}
+      {members.map(member => console.log('map', member))}
       {/* < Members /> */}
     </div>
   );

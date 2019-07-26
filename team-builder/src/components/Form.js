@@ -12,7 +12,7 @@ import React, {useState} from 'react';
     //   role2: "",
     //   role3:""
   });
-console.log('props', props)
+// console.log('props', props)
   const handleiInput = e =>{
       console.log('handle input Fire');
     //   console.log('Value', e.target.value);
@@ -28,9 +28,9 @@ console.log('input', input)
          props.addMember(input);
     //   console.log('target name', event.target.name)
     //   event.preventDefault(); //keeps page from reloading
-    // setInput( {  name: "",
-    // email:"",
-    // role:""})
+    setInput( {  name: "",
+    email:"",
+    role:""})
   };
 
   return (
